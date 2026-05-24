@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seddiqi Web Design | Affordable & Stunning Websites</title>
+    <style>
+        /* Modern Reset & CSS Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 10%;
+            background-color: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #334155;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        header {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .badge {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 span {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: #0f172a;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Global Section Styling */
+        section {
+            padding: 8rem 10% 4rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.25rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* About Section */
+        .about-content {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid #334155;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Pricing Section */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .price-card.featured {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .price span {
+            color: var(--accent);
+        }
+
+        .features-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2.5rem;
+            color: var(--text-muted);
+        }
+
+        .features-list li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            text-align: center;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            border: 1px solid #334155;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .email-link {
+            font-size: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            word-break: break-all;
+            transition: color 0.2s;
+        }
+
+        .email-link:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            nav { padding: 1rem 5%; }
+            .nav-links { display: none; } /* Keeps mobile super clean */
+            .price-card.featured { transform: none; }
+            .price-card.featured:hover { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav>
+        <div class="logo">Seddiqi<span>Webs</span></div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero / Intro Section -->
+    <header>
+        <div class="badge">Premium & Affordable Web Design</div>
+        <h1>The Most Beautiful Websites Built For <span>Your Business Growth</span></h1>
+        <p class="hero-p">High-speed, stunning, and modern mobile-friendly websites engineered perfectly for local North Carolina businesses and the global Afghan community.</p>
+        <a href="#contact" class="btn">Get Your Website Today</a>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2 class="section-title">Who Is <span>Behind This?</span></h2>
+        <div class="about-content">
+            <p><strong>Hi, I'm Irfanullah Seddiqi.</strong> I am a 16-year-old web developer originally from Kabul, Afghanistan, and currently living right here in High Point, North Carolina, where I'm a 10th grader at Southern Guilford High School.</p>
+            <p>I don't build generic, boring templates. I code custom, lighting-fast websites designed to turn visitors into paying customers. Because I am building my own independent business, I am able to offer world-class quality for a small fraction of what massive design agencies charge.</p>
+            <p>Whether you run a local shop in NC or an Afghan entrepreneur looking to launch a brilliant online brand, I am here to build it beautifully.</p>
+        </div>
+    </section>
+
+    <!-- Pricing Packages Section -->
+    <section id="pricing">
+        <h2 class="section-title">Honest, <span>Flat-Rate Pricing</span></h2>
+        <div class="pricing-container">
+            
+            <!-- Basic Business Package -->
+            <div class="price-card">
+                <h3>Starter Business</h3>
+                <div class="price">$200<span>Flat</span></div>
+                <ul class="features-list">
+                    <li>Fully Custom Home Page</li>
+                    <li>Perfect Mobile Responsive Design</li>
+                    <li>Lightning-Fast Loading Speeds</li>
+                    <li>Social Media Integration</li>
+                    <li>Contact Form Setup</li>
+                </ul>
+                <a href="#contact" class="btn">Choose Starter</a>
+            </div>
+
+            <!-- Ultimate Business Package -->
+            <div class="price-card featured">
+                <h3>Premium Growth</h3>
+                <div class="price">$500<span>Flat</span></div>
+                <ul class="features-list">
+                    <li>Full Multi-Page Website</li>
+                    <li>Advanced SEO (Rank on Google)</li>
+                    <li>English & Pashto/Dari Multilingual Support</li>
+                    <li>Custom Content & Service Displays</li>
+                    <li>1 Month Free Tech Support</li>
+                </ul>
+                <a href="#contact" class="btn">Choose Premium</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact / Call to Action Section -->
+    <section id="contact">
+        <div class="contact-box">
+            <h3>Let's Build Something Beautiful Together</h3>
+            <p>Ready to stand out and scale up your business? Send me an email directly and let's discuss your brand new website!</p>
+            <a href="mailto:irfanullahseddiqi0@gmail.com" class="email-link">irfanullahseddiqi0@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Seddiqi Web Design. Handcrafted in High Point, North Carolina.</p>
+    </footer>
+
+</body>
+</html>
